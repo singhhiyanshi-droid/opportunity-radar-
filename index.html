@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opportunity Radar</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+padding:20px;
+}
+
+header{
+text-align:center;
+margin-bottom:30px;
+}
+
+h1{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#94a3b8;
+}
+
+.search-container{
+display:flex;
+gap:10px;
+justify-content:center;
+margin:25px 0;
+flex-wrap:wrap;
+}
+
+input{
+padding:12px;
+width:350px;
+border:none;
+border-radius:10px;
+font-size:16px;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+background:#2563eb;
+color:white;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+.filters{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:25px;
+}
+
+.filter-btn{
+background:#1e293b;
+}
+
+.section-title{
+margin-top:30px;
+margin-bottom:20px;
+font-size:1.8rem;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1e293b;
+padding:18px;
+border-radius:15px;
+transition:0.2s;
+}
+
+.card:hover{
+transform:translateY(-3px);
+}
+
+.tag{
+display:inline-block;
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
+margin-bottom:10px;
+background:#334155;
+}
+
+.trust{
+color:#22c55e;
+font-weight:bold;
+}
+
+.free{
+border-left:5px solid #22c55e;
+}
+
+.paid{
+border-left:5px solid #f59e0b;
+}
+
+.card h3{
+margin:10px 0;
+}
+
+.card p{
+margin:6px 0;
+color:#cbd5e1;
+}
+
+.register{
+display:inline-block;
+margin-top:10px;
+padding:10px 14px;
+background:#2563eb;
+border-radius:8px;
+text-decoration:none;
+color:white;
+}
+
+footer{
+margin-top:50px;
+text-align:center;
+color:#94a3b8;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🚀 Opportunity Radar</h1>
+<p class="subtitle">
+Find verified workshops, research programs, olympiad camps,
+hackathons and learning opportunities.
+</p>
+</header>
+
+<div class="search-container">
+<input id="searchInput" placeholder="Search opportunities...">
+<button onclick="searchOpportunities()">Find Opportunities</button>
+</div>
+
+<div class="filters">
+<button class="filter-btn">All</button>
+<button class="filter-btn">AI</button>
+<button class="filter-btn">Research</button>
+<button class="filter-btn">JEE</button>
+<button class="filter-btn">Olympiads</button>
+<button class="filter-btn">Skills</button>
+<button class="filter-btn">Hackathons</button>
+</div>
+
+<h2 class="section-title">🔥 Free Opportunities</h2>
+
+<div class="cards" id="freeSection">
+
+<div class="card free">
+<span class="tag">AI</span>
+<h3>Intro to Machine Learning Workshop</h3>
+
+<p><b>Date:</b> July 12</p>
+<p><b>Time:</b> 7 PM IST</p>
+<p><b>Organizer:</b> Google Developers</p>
+<p><b>Difficulty:</b> Beginner</p>
+<p><b>Certificate:</b> Yes</p>
+<p class="trust">Trust Score: 98</p>
+
+<a href="#" class="register">Register</a>
+</div>
+
+<div class="card free">
+<span class="tag">Research</span>
+
+<h3>High School Research Bootcamp</h3>
+
+<p><b>Date:</b> July 18</p>
+<p><b>Time:</b> 6 PM IST</p>
+<p><b>Organizer:</b> University Outreach</p>
+<p><b>Difficulty:</b> Intermediate</p>
+<p><b>Certificate:</b> Yes</p>
+<p class="trust">Trust Score: 91</p>
+
+<a href="#" class="register">Register</a>
+</div>
+
+</div>
+
+<h2 class="section-title">💰 Paid Opportunities</h2>
+
+<div class="cards">
+
+<div class="card paid">
+<span class="tag">Olympiad</span>
+
+<h3>Advanced Olympiad Training Camp</h3>
+
+<p><b>Date:</b> Aug 2</p>
+<p><b>Time:</b> 5 PM IST</p>
+<p><b>Price:</b> ₹999</p>
+<p><b>Organizer:</b> National Training Institute</p>
+<p><b>Difficulty:</b> Advanced</p>
+<p><b>Certificate:</b> Yes</p>
+<p class="trust">Trust Score: 87</p>
+
+<a href="#" class="register">Register</a>
+</div>
+
+<div class="card paid">
+<span class="tag">AI</span>
+
+<h3>Deep Learning Foundations</h3>
+
+<p><b>Date:</b> Aug 10</p>
+<p><b>Time:</b> 8 PM IST</p>
+<p><b>Price:</b> ₹1499</p>
+<p><b>Organizer:</b> AI Academy</p>
+<p><b>Difficulty:</b> Intermediate</p>
+<p><b>Certificate:</b> Yes</p>
+<p class="trust">Trust Score: 85</p>
+
+<a href="#" class="register">Register</a>
+</div>
+
+</div>
+
+<footer>
+Opportunity Radar • Verified Opportunities Only
+</footer>
+
+<script>
+function searchOpportunities() {
+const query =
+document.getElementById("searchInput")
+.value
+.toLowerCase();
+
+const cards =
+document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+const text =
+card.innerText.toLowerCase();
+
+if(text.includes(query)){
+card.style.display="block";
+}
+else{
+card.style.display="none";
+}
+
+});
+}
+</script>
+
+</body>
+</html>
